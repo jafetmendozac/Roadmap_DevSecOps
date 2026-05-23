@@ -25,7 +25,7 @@ curl http://localhost:3000/contactos
 ```
 ## Validación de Seguridad (Regex) 🔒:
 -  El servidor incluye una regla de inspección mediante expresiones regulares para analizar el encabezado `User-Agent`. Esto permite identificar y bloquear peticiones anómalas, como herramientas de escaneo automatizadas o cadenas con longitudes inusuales antes de que interactúen con la lógica interna.
-  **Validación de Seguridad y Mitigación 🧪**
+  ### Validación de Seguridad y Mitigación 🧪
   Para comprobar el correcto funcionamiento de nuestro sistema de prevención de intrusos básico, realizamos una prueba de concepto (PoC) enviando un encabezado anómalo:
   ```bash
   curl http://localhost:3000/contactos -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ajdf;oakkldf'asjfkj'asdkfj'
