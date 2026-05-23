@@ -10,13 +10,14 @@ let mockResponse = [
   "Accept: text/html"
 ];
 
-function format(lineas) {
+function format(lineas, socket) {
     const [method, path] = lineas[0].split(" ");
     const userAgent = lineas.find(l => l.includes("User-Agent"));
     const regex = /User-Agent:\s*.{50,}/;
     
     if (regex.test(userAgent)) {
         console.log("Warning: User-Agent is too long");
+        socket.destroy();
     } else {
         console.log(`[${method}] Petición a '${path}' desde ${userAgent}`);
     }
@@ -28,7 +29,7 @@ const server = net.createServer((socket) => {
     socket.on('data', (bufferData) => {
         const peticionTexto = bufferData.toString();
         const lineas = peticionTexto.split('\r\n');
-        format(lineas);
+        format(lineas, socket);
     });
 
     socket.on('end', () => {
