@@ -6,7 +6,7 @@
 - **Filtro aplicado:** `smb` (Aislamiento de la versión antigua SMBv1).
 
 ## 2. Hallazgos en el Análisis de Tráfico
-Tras analizar la fase de negociación (`Negotiate Protocol`) y la autenticación exitosa (`Session Setup AndX Response` con estatus `STATUS_SUCCESS`), se identificó la solicitud explícita del cliente para montar un recurso compartido en la red.
+Tras analizar la fase de negociación (`Negotiate Protocol`) y la autenticación exitosa (`Session Setup AndX Response` con estatus(NT STATUS in SMB) `STATUS_SUCCESS`), se identificó la solicitud explícita del cliente para montar un recurso compartido en la red.
 
 ### Paquete bajo inspección: Tree Connect AndX Request
 - **Protocolo / OpCode:** SMBv1 / Tree Connect AndX (0x75)
